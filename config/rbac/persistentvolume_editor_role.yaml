@@ -1,0 +1,27 @@
+# permissions for end users to edit persistentvolumes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: volume-recycling-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: persistentvolume-editor-role
+rules:
+- apiGroups:
+  - geco.ethz.ch
+  resources:
+  - persistentvolumes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - geco.ethz.ch
+  resources:
+  - persistentvolumes/status
+  verbs:
+  - get

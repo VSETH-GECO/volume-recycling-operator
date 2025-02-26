@@ -1,0 +1,5 @@
+## Append samples of your project ##
+resources:
+- v1_persistentvolume.yaml
+- _v1_persistentvolume.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

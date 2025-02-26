@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    app.kubernetes.io/name: volume-recycling-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: persistentvolume-sample
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 500Gi
+  fc:
+    fsType: xfs
+    lun: 23
+    targetWWNs:
+      - "foobar"
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: default
+  volumeMode: Filesystem

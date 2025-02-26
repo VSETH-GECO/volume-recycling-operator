@@ -1,0 +1,23 @@
+# permissions for end users to view persistentvolumes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: volume-recycling-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: persistentvolume-viewer-role
+rules:
+- apiGroups:
+  - geco.ethz.ch
+  resources:
+  - persistentvolumes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - geco.ethz.ch
+  resources:
+  - persistentvolumes/status
+  verbs:
+  - get
